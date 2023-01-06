@@ -1,0 +1,42 @@
+# dataset hyps
+data_src: C:\Users\HP\Pictures\RGBT-HITSZ-G\dataset
+input_size:
+- 480
+- 480
+augmentation: True
+rgb_ext: jpg
+t_ext: npy
+msk_ext: png
+
+# dataloader hyps
+batch_size: 2
+num_worker: 8
+shuffle: true
+split: 0.2
+reuse: True
+
+# mmunet hyps
+fusion_mode: late
+in_ch1: 3
+in_ch2: 1
+num_cls: 3
+residual: False
+down_mode: pool
+up_mode: deconv
+base: 32
+depth: 3
+weights: runs/trained/D3Lh/weights/last.pt
+
+# criterion hyps
+loss_fc: Dice
+epsilon: 1.0e-06
+
+# optimizer hyps
+optim_fc: RMSProp
+init_lr: 1.0e-5
+weight_decay: 1.0e-8
+momentum: 0.9
+
+# train hyps
+epochs: 1
+
